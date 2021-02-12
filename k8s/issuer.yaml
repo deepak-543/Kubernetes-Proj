@@ -1,15 +1,13 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
-metadata: 
+metadata:
   name: letsencrypt-prod
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: 'deepakverma.dv0598@gmail.com'
-    #privatekey is used for associating the secret that letsencrypt going to send for verification
-    privateKeyRef:
+    email: "deepakverma.dv0598@email.com"
+    privateKeySecretRef:
       name: letsencrypt-prod
-    # its only specifying that when letencrypt going to use a url for verification then just respond on that.
     solvers:
       - http01:
           ingress:
