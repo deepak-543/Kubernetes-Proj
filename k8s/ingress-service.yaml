@@ -16,7 +16,7 @@ spec:
         - www.devopsfreak.tech
       secretName: devopsfreak-tech
   rules:
-    - hosts: devopsfreak.tech
+    - host: devopsfreak.tech
       http:
         paths:
           - path: /?(.*)
@@ -29,7 +29,7 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
-    - hosts: www.devopsfreak.tech
+    - host: www.devopsfreak.tech
       http:
         paths:
           - path: /?(.*)
