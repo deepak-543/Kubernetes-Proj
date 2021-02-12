@@ -1,0 +1,22 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: deveopsfreak-tech-tls
+spec:
+  # this willl tell certmanager where to store the retrived certificates
+  secretName: devopsfreak-tech
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: devopsfreak.tech
+  dnsNames:
+    - devopsfreak.tech
+    - www.devopsfreak.tech
+  # this acme is for verification for whether domain belonsgs to me or not.
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domainNames:
+          - devopsfreak.tech
+          - www.devopsfreak.tech
